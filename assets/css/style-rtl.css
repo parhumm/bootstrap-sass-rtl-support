@@ -8033,7 +8033,7 @@ button.close {
     display: none !important;
   }
 }
-/* line 5, ../stylesheets/_app.scss */
+/* line 10, ../stylesheets/_app.scss */
 body {
   direction: rtl;
   text-align: right;
@@ -8041,30 +8041,76 @@ body {
   background-position: right top;
   line-height: 22px;
 }
-/* line 18, ../stylesheets/_app.scss */
+/* line 23, ../stylesheets/_app.scss */
 body h1 {
   line-height: 25px;
 }
 
-/* line 24, ../stylesheets/_app.scss */
+/* line 29, ../stylesheets/_app.scss */
 #container {
   float: right;
   line-height: 30px;
   padding: 1px 0 3px 2px;
 }
 
-/* line 30, ../stylesheets/_app.scss */
+/* line 35, ../stylesheets/_app.scss */
 #sidebar {
   float: left;
   margin-right: 50px;
 }
 
-/* line 34, ../stylesheets/_app.scss */
+/* line 39, ../stylesheets/_app.scss */
 .next {
   content: "<";
 }
 
-/* line 37, ../stylesheets/_app.scss */
+/* line 42, ../stylesheets/_app.scss */
 .br {
   border-radius: 0 0 0 25px;
+}
+
+/* line 47, ../stylesheets/_app.scss */
+#nav-parhum {
+  background: #eee;
+}
+/* line 50, ../stylesheets/_app.scss */
+#nav-parhum li {
+  display: block;
+  margin-right: 0;
+}
+@media only screen and (min-width: 768px) {
+  /* line 56, ../stylesheets/_app.scss */
+  #nav-parhum ul {
+    float: left;
+    width: 80%;
+  }
+  /* line 60, ../stylesheets/_app.scss */
+  #nav-parhum li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 66, ../stylesheets/_app.scss */
+  #nav-parhum ul {
+    float: left;
+    width: 80%;
+  }
+  /* line 70, ../stylesheets/_app.scss */
+  #nav-parhum li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 76, ../stylesheets/_app.scss */
+  #nav-parhum h1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 81, ../stylesheets/_app.scss */
+  #nav-parhum h1 {
+    font-size: 50px;
+  }
 }

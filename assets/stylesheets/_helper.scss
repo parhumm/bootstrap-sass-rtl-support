@@ -1,0 +1,83 @@
+//
+// Functions
+//
+
+// RANGES
+// We use these functions to define ranges for various things, like media queries. 
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+
+//
+// Settings
+//
+
+// Media Query Ranges
+ $screen-xs-range: ($screen-xs-min, $screen-xs-max);
+ $screen-sm-range: ($screen-sm-min, $screen-sm-max);
+ $screen-md-range: ($screen-md-min, $screen-md-max);
+ $screen-lg-range: ($screen-lg-min, 999999999px);
+ 
+ // Media Query Expressions
+ $screen: "only screen";
+
+ $landscape: "#{$screen} and (orientation: landscape)";
+ $portrait: "#{$screen} and (orientation: portrait)";
+
+ $screen-xs-up: $screen;
+ $screen-xs-only: "#{$screen} and (max-width: #{upper-bound($screen-xs-range)})";
+
+ $screen-sm-up: "#{$screen} and (min-width:#{lower-bound($screen-sm-range)})";
+ $screen-sm-only: "#{$screen} and (min-width:#{lower-bound($screen-sm-range)}) and (max-width:#{upper-bound($screen-sm-range)})";
+
+ $screen-md-up: "#{$screen} and (min-width:#{lower-bound($screen-md-range)})";
+ $screen-md-only: "#{$screen} and (min-width:#{lower-bound($screen-md-range)}) and (max-width:#{upper-bound($screen-md-range)})";
+
+ $screen-lg-up: "#{$screen} and (min-width:#{lower-bound($screen-lg-range)})";
+ $screen-lg-only: $screen-lg-up;
+
+
+//
+// Mixin
+//
+
+@mixin breakpoint($point) {
+  @if $point == xs {
+      @media #{$screen-xs-only} { @content; }
+  }
+  @else if $point == xs-up {
+      @content;
+  }
+  @else if $point == sm {
+      @media #{$screen-sm-only} { @content; }
+  }
+  @else if $point == sm-up {
+      @media #{$screen-sm-up} { @content; }
+  }
+  @else if $point == md {
+      @media #{$screen-md-only} { @content; }
+  }
+  @else if $point == md-up {
+      @media #{$screen-md-up} { @content; }
+  }
+  @else if $point == lg {
+      @media #{$screen-lg-only} { @content; }
+  }
+  @else if $point == lg-up {
+      @media #{$screen-lg-up} { @content; }
+  }
+  @else {
+      @warn "This breakpoint '#{$point}' doesn't exist!";
+  }
+}

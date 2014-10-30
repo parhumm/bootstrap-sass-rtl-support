@@ -1,7 +1,12 @@
 //
+// Add Media Queries Mixin
+//
+@import "helper";
+
+
+//
 // Sample usage of Direction Controller
 //
-
 body {
     direction: $text-direction;
     text-align: $start;
@@ -36,4 +41,45 @@ body {
 }
 .br {
 	border-radius: br-values(0 0 25px 0);
+}
+
+
+#nav-parhum {
+  background: #eee;
+  @include breakpoint(xs-up) {
+      li {
+          display: block;
+          margin-right: 0;
+      }
+  }
+  @include breakpoint(sm-up) {
+      ul {
+          float: left;
+          width: 80%;
+      }
+      li {
+          display: inline-block;
+          margin-right: 1rem;
+      }
+  }
+  @include breakpoint(sm) {
+      ul {
+          float: left;
+          width: 80%;
+      }
+      li {
+          display: inline-block;
+          margin-right: 1rem;
+      }
+  }
+  @include breakpoint(md) {
+      h1 {
+        font-size: 50px;
+      }
+  }
+  @include breakpoint(lg-up) {
+      h1 {
+        font-size: 50px;
+      }
+  }
 }
